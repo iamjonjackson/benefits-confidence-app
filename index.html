@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benefits Confidence Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+    <div>
+        <h1>Benefits Confidence Dashboard</h1>
+        <p class="subtitle">Visualise and track project benefit delivery confidence</p>
+    </div>
+</header>
+
+<main>
+
+    <!-- ===== Input Form ===== -->
+    <section aria-labelledby="form-heading">
+        <h2 class="section-title" id="form-heading">Add a Benefit</h2>
+
+        <div class="form-card">
+            <form id="benefit-form" novalidate>
+                <div class="form-grid">
+
+                    <div class="form-field" style="grid-column: 1 / -1">
+                        <label for="benefitName">Benefit Name</label>
+                        <input id="benefitName"
+                               type="text"
+                               placeholder="e.g. Reduced Operational Costs"
+                               required
+                               maxlength="120" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="kpiPerformance">KPI Performance (%)</label>
+                        <input id="kpiPerformance"
+                               type="number"
+                               min="0" max="100" step="1"
+                               placeholder="0 – 100"
+                               required />
+                        <span class="hint">How well are KPIs being met?</span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="projectCompletion">Project Completion (%)</label>
+                        <input id="projectCompletion"
+                               type="number"
+                               min="0" max="100" step="1"
+                               placeholder="0 – 100"
+                               required />
+                        <span class="hint">Overall project progress.</span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="stakeholderEngagement">Stakeholder Engagement (1–5)</label>
+                        <input id="stakeholderEngagement"
+                               type="number"
+                               min="1" max="5" step="1"
+                               placeholder="1 = Low, 5 = High"
+                               required />
+                        <span class="hint">Level of stakeholder buy-in.</span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="riskLevel">Risk Level (1–5)</label>
+                        <input id="riskLevel"
+                               type="number"
+                               min="1" max="5" step="1"
+                               placeholder="1 = Low risk, 5 = High risk"
+                               required />
+                        <span class="hint">Current assessed risk to delivery.</span>
+                    </div>
+
+                </div><!-- /form-grid -->
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Add Benefit</button>
+                    <button type="button" id="btn-clear" class="btn-secondary">Clear</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== Dashboard ===== -->
+    <section aria-labelledby="dashboard-heading">
+        <h2 class="section-title" id="dashboard-heading">Dashboard</h2>
+
+        <div class="dashboard-controls">
+            <div class="summary-pills" aria-label="Confidence summary">
+                <span class="pill pill-green" id="pill-green">0 High</span>
+                <span class="pill pill-amber" id="pill-amber">0 Medium</span>
+                <span class="pill pill-red"   id="pill-red">0 Low</span>
+            </div>
+        </div>
+
+        <div class="card-grid" id="card-grid" aria-live="polite" aria-label="Benefits dashboard">
+            <!-- Cards rendered by app.js -->
+        </div>
+    </section>
+
+</main>
+
+<!-- ===== Toast notification ===== -->
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

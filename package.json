@@ -1,0 +1,19 @@
+{
+  "name": "benefits-confidence-app",
+  "version": "1.0.0",
+  "description": "Benefits Confidence Dashboard – a client-side tool for visualising project benefit confidence scores.",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  },
+  "license": "MIT"
+}
